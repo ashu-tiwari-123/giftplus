@@ -11,7 +11,7 @@ const AboutPage = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Story</h1>
           <div className="w-24 h-1 bg-[#C09F63] mx-auto mb-8"></div>
           <p className="text-xl max-w-3xl mx-auto">
-            Pioneering corporate gifting solutions since 2017
+            Pioneering corporate gifting solutions since 2024
           </p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const ContactPage = () => {
   return (
@@ -29,8 +30,8 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-[#1F2937] mb-2">Phone</h3>
-                  <p className="text-[#1F2937]">+91 98765 43210</p>
-                  <p className="text-[#1F2937]">+91 11 2345 6789 (Landline)</p>
+                  <p className="text-[#1F2937]">+91 89203 10249</p>
+                  <p className="text-[#1F2937]">+91 63619 31592 </p>
                 </div>
               </div>
 
@@ -41,8 +42,8 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-[#1F2937] mb-2">Email</h3>
-                  <p className="text-[#1F2937]">sales@corpgifts.com</p>
-                  <p className="text-[#1F2937]">support@corpgifts.com</p>
+                  <p className="text-[#1F2937]">giftplus0024@gmail.com </p>
+                  <p className="text-[#1F2937]">support@giftplus.com</p>
                 </div>
               </div>
 
@@ -54,9 +55,9 @@ const ContactPage = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-[#1F2937] mb-2">Corporate Office</h3>
                   <p className="text-[#1F2937]">
-                    123 Business Tower, Sector 15<br />
-                    Gurugram, Haryana 122001<br />
-                    India
+                   No-98 Ground Floor, <br/>
+                   9th Main Dwarkanagar, Chikkabanavara, <br/>
+                   Bengaluru, India - 560090
                   </p>
                 </div>
               </div>
@@ -143,7 +144,8 @@ const ContactPage = () => {
                 className="bg-[#C09F63] hover:bg-[#E5B769] text-white font-medium px-6 py-3 rounded-lg flex items-center transition-colors duration-300"
               >
                 <FaPaperPlane className="mr-2" />
-                Send Message
+                <Link to="/coming-soon">
+                Send Message</Link>
               </button>
             </form>
           </div>

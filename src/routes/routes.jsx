@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import AboutPage from "../pages/About";
 import ServicesPage from "../pages/Services";
 import ContactPage from "../pages/Contact";
+import Error404 from "../components/Error";
+import ComingSoon from "../components/ComingSoon";
 
 const AppRoutes = () => {
   return (
@@ -14,7 +16,9 @@ const AppRoutes = () => {
         <Route path="about" element={<AboutPage />} />
         <Route path="services" element={<ServicesPage />} />
         <Route path="contact" element={<ContactPage />} />
+        <Route path="coming-soon" element={<ComingSoon />} />
       </Route>
+      <Route path="*" element={<Error404 />} />
     </Routes>
   );
 };

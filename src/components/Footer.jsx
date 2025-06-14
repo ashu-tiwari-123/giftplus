@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-6 text-[#C09F63]">YourLogo</h3>
+            <h3 className="text-2xl font-bold mb-6 text-[#C09F63]">GiftPlus</h3>
             <p className="mb-6">
               Premium corporate gifting solutions that strengthen business relationships through thoughtful, eco-friendly products.
             </p>
@@ -58,15 +58,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <FaPhone className="text-[#C09F63] mt-1 mr-3" />
-                <span>+91 12345 67890</span>
+                <span>+91 89203 10249</span>
               </li>
               <li className="flex items-start">
                 <FaEnvelope className="text-[#C09F63] mt-1 mr-3" />
-                <span>info@yourcompany.com</span>
+                <span>giftplus0024@gmail.com</span>
               </li>
               <li className="flex items-start">
                 <FaMapMarkerAlt className="text-[#C09F63] mt-1 mr-3" />
-                <span>123 Business Avenue, Mumbai, India - 400001</span>
+                <span>No-98 Ground Floor, 9th Main Dwarkanagar, Chikkabanavara, Bengaluru, India - 560090</span>
               </li>
             </ul>
           </div>
@@ -78,7 +78,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-[#9CA3AF] mb-4 md:mb-0">
-            © {new Date().getFullYear()} Your Company Name. All rights reserved.
+            © {new Date().getFullYear()} Gift Plus. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="#" className="text-sm text-[#9CA3AF] hover:text-[#C09F63] transition-colors duration-300">Privacy Policy</a>

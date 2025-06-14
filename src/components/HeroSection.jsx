@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HeroSection = () => {
   return (
@@ -20,10 +21,14 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
             <button className="bg-[#C09F63] hover:bg-[#E5B769] text-[#1F2937] font-medium px-8 py-3 rounded-full transition-colors duration-300">
+              <Link to="/contact">
               Get in Touch
+                </Link>
             </button>
             <button className="border border-[#1F2937] hover:bg-[#1F2937] hover:text-[#F9FAFB] text-[#1F2937] font-medium px-8 py-3 rounded-full transition-colors duration-300">
+              <Link to="/coming-soon">
               Explore Gift Collections
+              </Link>
             </button>
           </div>
         </div>
