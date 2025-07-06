@@ -36,9 +36,9 @@ const PartnersSection = () => {
                   className="max-h-full max-w-full object-contain"
                 />
               </div>
-              <span className="text-sm md:text-base text-[#1F2937] font-medium">
+              {/* <span className="text-sm md:text-base text-[#1F2937] font-medium">
                 {partner.name}
-              </span>
+              </span> */}
             </div>
           ))}
         </div>
