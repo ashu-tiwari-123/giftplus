@@ -1,18 +1,20 @@
 import borosil from "../assets/partner_loog/borosil.png";
 import at from "../assets/partner_loog/at.png";
 import cross from "../assets/partner_loog/cross.png";
+import { useAdmin } from "../context/AdminContext";
 
 const PartnersSection = () => {
-  const partners = [
-    { name: "Borosil", logo: borosil },
-    { name: "American Tourister", logo: at },
-    { name: "Cross", logo: cross },
-    { name: "Borosil", logo: borosil },
-    { name: "American Tourister", logo: at },
-    { name: "Cross", logo: cross },
-    { name: "Borosil", logo: borosil },
-    { name: "American Tourister", logo: at },
-  ];
+  const {partners} = useAdmin()
+  // const partners = [
+  //   { name: "Borosil", logo: borosil },
+  //   { name: "American Tourister", logo: at },
+  //   { name: "Cross", logo: cross },
+  //   { name: "Borosil", logo: borosil },
+  //   { name: "American Tourister", logo: at },
+  //   { name: "Cross", logo: cross },
+  //   { name: "Borosil", logo: borosil },
+  //   { name: "American Tourister", logo: at },
+  // ];
 
   return (
     <section className="bg-white py-12 md:py-16">

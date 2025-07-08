@@ -5,9 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import one from "../assets/product_image/one.jpg";
 import pen from "../assets/product_image/pen.jpg";
 import cooker from "../assets/product_image/cooker.jpg";
+import { useAdmin } from "../context/AdminContext";
 
 const ProductsCarousel = () => {
-  // Sample product data (replace with your actual products)
+  //  const { collections, addCollection, loading } = useAdmin();
+  //  console.log(collections);
+   
   const products = [
     { name: "Premium Suitcase", image: one },
     { name: "InstaPot Cooker", image: cooker },
