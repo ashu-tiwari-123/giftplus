@@ -50,7 +50,7 @@ const ClientCarousel = () => {
     <section className="bg-white py-12">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-[#1F2937] text-center mb-4">
-          Our Valued Clients
+          Our Valued Clientsssss
         </h2>
         <div className="w-24 h-1 bg-[#C09F63] mx-auto mt-2 mb-6"></div>
         <div className="slider-container">
