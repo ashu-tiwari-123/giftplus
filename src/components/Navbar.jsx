@@ -1,45 +1,36 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import QuotePopup from './Quote';
 import ContactPopup from './ContactPopup';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showQuotePopup, setShowQuotePopup] = useState(false);
-
-// <button >Get a Quote</button>
   const sidebarRef = useRef(null);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
-  // Close sidebar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
         closeMenu();
       }
     };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    if (isOpen) document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
 
-  // Close sidebar when a link is clicked
-  const handleLinkClick = () => {
-    closeMenu();
-  };
+  const navLinkClass = ({ isActive }) =>
+    `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+      isActive ? 'text-[#C09F63]' : 'text-[#1F2937] hover:text-[#C09F63]'
+    }`;
+
+  const mobileNavLinkClass = ({ isActive }) =>
+    `px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${
+      isActive ? 'text-[#C09F63]' : 'text-[#1F2937] hover:text-[#C09F63]'
+    }`;
 
   return (
     <nav className="bg-[#F9FAFB] shadow-md fixed w-full z-50">
@@ -47,38 +38,29 @@ const Navbar = () => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="text-[#1F2937] text-xl font-bold">
+            <NavLink to="/" className="text-[#1F2937] text-xl font-bold">
               GiftPlus
-            </Link>
+            </NavLink>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            <Link
-              to="/"
-              className="text-[#1F2937] hover:text-[#C09F63] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
-            >
+            <NavLink to="/" className={navLinkClass}>
               Home
-            </Link>
-            <Link
-              to="/about"
-              className="text-[#1F2937] hover:text-[#C09F63] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
-            >
+            </NavLink>
+            <NavLink to="/about" className={navLinkClass}>
               About
-            </Link>
-            <Link
-              to="/services"
-              className="text-[#1F2937] hover:text-[#C09F63] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
-            >
+            </NavLink>
+            <NavLink to="/services" className={navLinkClass}>
               Services
-            </Link>
-            <Link
-              to="/contact"
-              className="text-[#1F2937] hover:text-[#C09F63] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300"
-            >
+            </NavLink>
+            <NavLink to="/contact" className={navLinkClass}>
               Contact
-            </Link>
-            <button onClick={() => setShowQuotePopup(true)} className="bg-[#C09F63] hover:bg-[#E5B769] text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+            </NavLink>
+            <button
+              onClick={() => setShowQuotePopup(true)}
+              className="bg-[#C09F63] hover:bg-[#E5B769] text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+            >
               Get a Quote
             </button>
           </div>
@@ -90,11 +72,7 @@ const Navbar = () => {
               className="inline-flex items-center justify-center p-2 rounded-md text-[#1F2937] hover:text-[#C09F63] focus:outline-none"
               aria-label="Toggle menu"
             >
-              {isOpen ? (
-                <FaTimes className="h-6 w-6" />
-              ) : (
-                <FaBars className="h-6 w-6" />
-              )}
+              {isOpen ? <FaTimes className="h-6 w-6" /> : <FaBars className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -115,38 +93,25 @@ const Navbar = () => {
             <FaTimes className="h-6 w-6" />
           </button>
         </div>
-        
+
         <div className="flex flex-col px-4 space-y-4">
-          <Link
-            to="/"
-            onClick={handleLinkClick}
-            className="text-[#1F2937] hover:text-[#C09F63] px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
-          >
+          <NavLink to="/" onClick={closeMenu} className={mobileNavLinkClass}>
             Home
-          </Link>
-          <Link
-            to="/about"
-            onClick={handleLinkClick}
-            className="text-[#1F2937] hover:text-[#C09F63] px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
-          >
+          </NavLink>
+          <NavLink to="/about" onClick={closeMenu} className={mobileNavLinkClass}>
             About
-          </Link>
-          <Link
-            to="/services"
-            onClick={handleLinkClick}
-            className="text-[#1F2937] hover:text-[#C09F63] px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
-          >
+          </NavLink>
+          <NavLink to="/services" onClick={closeMenu} className={mobileNavLinkClass}>
             Services
-          </Link>
-          <Link
-            to="/contact"
-            onClick={handleLinkClick}
-            className="text-[#1F2937] hover:text-[#C09F63] px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
-          >
+          </NavLink>
+          <NavLink to="/contact" onClick={closeMenu} className={mobileNavLinkClass}>
             Contact
-          </Link>
+          </NavLink>
           <button
-            onClick={()=>{handleLinkClick(), setShowQuotePopup(true)}}
+            onClick={() => {
+              closeMenu();
+              setShowQuotePopup(true);
+            }}
             className="bg-[#C09F63] hover:bg-[#E5B769] text-white px-4 py-2 rounded-md text-base font-medium transition-colors duration-300 mt-4"
           >
             Get a Quote
@@ -156,8 +121,12 @@ const Navbar = () => {
 
       {/* Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-10 z-40 md:hidden" onClick={closeMenu}></div>
+        <div
+          className="fixed inset-0 bg-black bg-opacity-10 z-40 md:hidden"
+          onClick={closeMenu}
+        ></div>
       )}
+
       {showQuotePopup && <ContactPopup onClose={() => setShowQuotePopup(false)} />}
     </nav>
   );

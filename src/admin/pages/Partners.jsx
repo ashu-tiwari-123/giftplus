@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import Table from '../components/Table';
-import { useAdmin } from '../../context/AdminContext';
+// import { useAdmin } from '../../context/AdminContext';
 
 const Partners = () => {
   const { partners, addPartner, loading } = useAdmin();

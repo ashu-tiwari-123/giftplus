@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import one from "../assets/product_image/one.jpg";
 import pen from "../assets/product_image/pen.jpg";
 import cooker from "../assets/product_image/cooker.jpg";
-import { useAdmin } from "../context/AdminContext";
 import CollectionData from "../data/collectionData";
 
 const ProductsCarousel = () => {

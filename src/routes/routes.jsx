@@ -15,14 +15,12 @@ import Partners from "../admin/pages/Partners";
 import Gallery from "../admin/pages/Gallery";
 import Collections from "../admin/pages/Collections";
 import Clients from "../admin/pages/Clients";
-import ScrollToTop from "../components/scrollToTop";
 
 // Admin Pages
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <ScrollToTop/>
       {/* Public Routes */}
       <Route path="/" element={<UserLayout />}>
         <Route index element={<Home />} />

@@ -60,7 +60,7 @@ const ClientCarousel = () => {
           <Slider {...settings}>
             {clients.map((client, index) => (
               <div key={index} className="px-2 focus:outline-none">
-                <div className="flex items-center justify-center h-24 p-4 grayscale hover:grayscale-0 transition-all duration-300">
+                <div className="flex items-center justify-center h-24 p-4  hover:grayscale transition-all duration-300">
                   <img 
                     src={client.logo} 
                     alt={client.name} 

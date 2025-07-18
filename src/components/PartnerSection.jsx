@@ -70,7 +70,7 @@ const PartnersSection = () => {
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-500"
+                  className="max-h-full max-w-full object-contain  hover:grayscale transition-all duration-500"
                 />
               </div>
               <span className="mt-3 text-sm md:text-base text-[#1F2937] font-medium opacity-0 group-hover:opacity-100 transition-opacity">

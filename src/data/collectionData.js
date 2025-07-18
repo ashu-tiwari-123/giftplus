@@ -1,21 +1,39 @@
 const CollectionData = [
   {
     id: 1,
-    name: "Premium Suitcase",
+    name: "Corporate Gift Set",
     image:
-      "https://res.cloudinary.com/djt9kbgzg/image/upload/v1752840276/american-green-travel-ji5XMfO3dXY-unsplash_awwxyz.jpg",
+      "https://res.cloudinary.com/djt9kbgzg/image/upload/v1752847184/visualelectric-1752846586176_ugl6ko.png",
   },
   {
     id: 2,
-    name: "InstaPot Cooker",
+    name: "Travel Essentials",
     image:
-      "https://res.cloudinary.com/djt9kbgzg/image/upload/v1752840276/katherine-chase-VNBUJ6imfGs-unsplash_znffvr.jpg",
+      "https://res.cloudinary.com/djt9kbgzg/image/upload/v1752847231/visualelectric-1_qwre6f.png",
   },
   {
     id: 3,
-    name: "Luxury Pen Collection",
+    name: "Kitchen Appliances",
     image:
-      "https://res.cloudinary.com/djt9kbgzg/image/upload/v1752840276/andrey-matveev-JzO3C9e8HAM-unsplash_iz5ero.jpg",
+      "https://res.cloudinary.com/djt9kbgzg/image/upload/v1752847230/visualelectric-1_2_vjslix.png",
+  },
+  {
+    id: 4,
+    name: "Home Décor Items",
+    image:
+      "https://res.cloudinary.com/djt9kbgzg/image/upload/v1752847185/visualelectric-1752846895182_m821t4.png",
+  },
+  {
+    id: 5,
+    name: "Luxury Pens",
+    image:
+      "https://res.cloudinary.com/djt9kbgzg/image/upload/v1752847184/visualelectric-1752847051065_jkuudv.png",
+  },
+  {
+    id: 6,
+    name: "Electronic Gadgets",
+    image:
+      "https://res.cloudinary.com/djt9kbgzg/image/upload/v1752847184/visualelectric-1752846955209_nsdvs8.png",
   },
 ];
 
