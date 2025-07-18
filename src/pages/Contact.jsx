@@ -1,7 +1,57 @@
+import { useRef } from 'react';
+import emailjs from 'emailjs-com';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ContactPage = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    const userData = {
+      from_name: form.current.from_name.value,
+      email: form.current.reply_to.value,
+      message: form.current.message.value,
+    };
+
+    toast.info("📤 Sending message...");
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ADMIN,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        console.log("✅ Message sent to admin");
+
+        emailjs
+          .send(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_EMAILJS_TEMPLATE_ID_USER,
+            userData,
+            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+          )
+          .then(() => {
+            toast.success("✅ Thanks for reaching out! We'll get back to you soon.");
+            form.current.reset();
+          })
+          .catch((err) => {
+            console.error("❌ Error sending confirmation email", err);
+            toast.error("Failed to send confirmation email.");
+          });
+      })
+      .catch((err) => {
+        console.error("❌ Error sending admin email", err);
+        toast.error("Something went wrong. Please try again.");
+      });
+  };
+
+
+
   return (
     <section className="bg-[#F9FAFB]">
       {/* Hero Section */}
@@ -21,7 +71,7 @@ const ContactPage = () => {
           {/* Contact Information */}
           <div>
             <h2 className="text-2xl font-bold text-[#1F2937] mb-8">Our Office</h2>
-            
+
             <div className="space-y-8">
               {/* Phone */}
               <div className="flex items-start">
@@ -30,8 +80,8 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-[#1F2937] mb-2">Phone</h3>
-                  <p className="text-[#1F2937]">+91 89203 10249</p>
                   <p className="text-[#1F2937]">+91 63619 31592 </p>
+                  <p className="text-[#1F2937]">+91 89203 10249</p>
                 </div>
               </div>
 
@@ -43,7 +93,7 @@ const ContactPage = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-[#1F2937] mb-2">Email</h3>
                   <p className="text-[#1F2937]">giftplus0024@gmail.com </p>
-                  <p className="text-[#1F2937]">support@giftplus.com</p>
+                  {/* <p className="text-[#1F2937]">support@giftplus.com</p> */}
                 </div>
               </div>
 
@@ -55,9 +105,9 @@ const ContactPage = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-[#1F2937] mb-2">Corporate Office</h3>
                   <p className="text-[#1F2937]">
-                   No-98 Ground Floor, <br/>
-                   9th Main Dwarkanagar, Chikkabanavara, <br/>
-                   Bengaluru, India - 560090
+                    No-98 Ground Floor, <br />
+                    9th Main Dwarkanagar, Chikkabanavara, <br />
+                    Bengaluru, India - 560090
                   </p>
                 </div>
               </div>
@@ -86,13 +136,14 @@ const ContactPage = () => {
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-xl shadow-md border border-[#C09F63]/30">
             <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Send Us a Message</h2>
-            
-            <form className="space-y-6">
+
+            <form ref={form} onSubmit={sendEmail} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-[#1F2937] mb-1">
                   Full Name <span className="text-[#C09F63]">*</span>
                 </label>
                 <input
+                  name="from_name"
                   type="text"
                   id="name"
                   className="w-full px-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
@@ -107,6 +158,7 @@ const ContactPage = () => {
                 </label>
                 <input
                   type="email"
+                  name="reply_to"
                   id="email"
                   className="w-full px-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
                   placeholder="your.email@example.com"
@@ -120,6 +172,7 @@ const ContactPage = () => {
                 </label>
                 <input
                   type="tel"
+                  name="phone"
                   id="phone"
                   className="w-full px-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
                   placeholder="+91 98765 43210"
@@ -133,6 +186,7 @@ const ContactPage = () => {
                 <textarea
                   id="message"
                   rows="4"
+                  name="message"
                   className="w-full px-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
                   placeholder="How can we help you?"
                   required
@@ -144,8 +198,9 @@ const ContactPage = () => {
                 className="bg-[#C09F63] hover:bg-[#E5B769] text-white font-medium px-6 py-3 rounded-lg flex items-center transition-colors duration-300"
               >
                 <FaPaperPlane className="mr-2" />
-                <Link to="/coming-soon">
-                Send Message</Link>
+                {/* <Link to="/coming-soon"> */}
+                Send Message
+                {/* </Link> */}
               </button>
             </form>
           </div>

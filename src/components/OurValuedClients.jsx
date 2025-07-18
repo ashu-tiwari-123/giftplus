@@ -3,17 +3,20 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import bruker from "../assets/clients_logo/bruker.png"; // Adjust the path as necessary
+import  clientData  from '../data/clientData.js';
 
 const ClientCarousel = () => {
   // const { clients, addClient, loading } = useAdmin();
-  const clients = [
-    { name: "Novartis", logo: bruker },
-    { name: "Novartis", logo: bruker },
-    { name: "Novartis", logo: bruker },
-    { name: "Novartis", logo: bruker },
-    { name: "Novartis", logo: bruker },
-    { name: "Novartis", logo: bruker },
-  ];
+  // const clients = [
+  //   { name: "Novartis", logo: bruker },
+  //   { name: "Novartis", logo: bruker },
+  //   { name: "Novartis", logo: bruker },
+  //   { name: "Novartis", logo: bruker },
+  //   { name: "Novartis", logo: bruker },
+  //   { name: "Novartis", logo: bruker },
+  // ];
+
+  const clients = clientData
 
   // Slick carousel settings
   const settings = {

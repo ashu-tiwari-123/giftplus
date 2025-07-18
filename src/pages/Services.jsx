@@ -8,6 +8,7 @@ import {
   FaTshirt,
   FaLaptop,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ServicesPage = () => {
   return (
@@ -241,7 +242,9 @@ const ServicesPage = () => {
             strengthen relationships.
           </p>
           <button className="bg-[#C09F63] hover:bg-[#E5B769] text-white font-medium px-8 py-3 rounded-full transition-colors duration-300">
-            Connect With Our Team
+            <Link to="/coming-soon">
+              Connect With Our Team
+            </Link>
           </button>
         </div>
       </div>

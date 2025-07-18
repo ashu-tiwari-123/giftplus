@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import QuotePopup from './Quote';
+import ContactPopup from './ContactPopup';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -157,7 +158,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-10 z-40 md:hidden" onClick={closeMenu}></div>
       )}
-      {showQuotePopup && <QuotePopup onClose={() => setShowQuotePopup(false)} />}
+      {showQuotePopup && <ContactPopup onClose={() => setShowQuotePopup(false)} />}
     </nav>
   );
 };
