@@ -1,10 +1,10 @@
 import borosil from "../assets/partner_loog/borosil.png";
 import at from "../assets/partner_loog/at.png";
 import cross from "../assets/partner_loog/cross.png";
-import { useAdmin } from "../context/AdminContext";
+import  partnersData from "../data/partnersData";
 
 const PartnersSection = () => {
-  const {partners} = useAdmin()
+  // const {partners} = useAdmin()
   // const partners = [
   //   { name: "Borosil", logo: borosil },
   //   { name: "American Tourister", logo: at },
@@ -29,7 +29,7 @@ const PartnersSection = () => {
 
         {/* Partner Logos - Full width */}
         <div className="w-full flex flex-wrap justify-evenly items-center gap-8 md:gap-12 mb-12">
-          {partners.map((partner, index) => (
+          {partnersData.map((partner, index) => (
             <div key={index} className="flex flex-col items-center px-2">
               <div className="h-20 w-40 md:h-24 md:w-48 flex items-center justify-center mb-2">
                 <img

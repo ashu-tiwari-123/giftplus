@@ -30,10 +30,10 @@ const AppRoutes = () => {
         <Route path="coming-soon" element={<ComingSoon />} />
       </Route>
 
-      {/* Admin Login */}
+      {/* Admin Login
       <Route path="/admin" element={<AdminLogin />} />
 
-      {/* Admin Protected Routes */}
+      Admin Protected Routes
       <Route path="/admin/dashboard" element={<AdminRoute />}>
         <Route element={<Dashboard/>}>
           <Route path="clients" element={<Clients />} />
@@ -41,7 +41,7 @@ const AppRoutes = () => {
           <Route path="gallery" element={<Gallery />} />
           <Route path="collections" element={<Collections />} />
         </Route>
-      </Route>
+      </Route> */}
 
       {/* 404 Route */}
       <Route path="*" element={<Error404 />} />
