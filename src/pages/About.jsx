@@ -23,7 +23,7 @@ const AboutPage = () => {
           <div className="text-center">
             <div className="h-64 w-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#C09F63]">
               <img 
-                src={founder} 
+                src="https://res.cloudinary.com/djt9kbgzg/image/upload/v1752847888/visualelectric-1752847823284_yewv5m.png"
                 alt="Mr. Prakash" 
                 className="w-full h-full object-cover"
               />
@@ -49,7 +49,7 @@ const AboutPage = () => {
           <div className="text-center">
             <div className="h-64 w-64 mx-auto mb-6 rounded-full overflow-hidden border-4 border-[#C09F63]">
               <img 
-                src={manager} 
+                src="https://res.cloudinary.com/djt9kbgzg/image/upload/v1752847947/visualelectric-1752847920667_qel0di.png"
                 alt="Ashutosh Tiwari" 
                 className="w-full h-full object-cover"
               />
