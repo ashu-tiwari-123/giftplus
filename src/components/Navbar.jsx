@@ -39,7 +39,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <NavLink to="/" className="text-[#1F2937] text-xl font-bold">
-              GiftPlus
+              Gift Plus
             </NavLink>
           </div>
 

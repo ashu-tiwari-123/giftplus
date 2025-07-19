@@ -1,7 +1,7 @@
 import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import emailjs from 'emailjs-com';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaClock } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const ContactPage = () => {
@@ -50,55 +50,88 @@ const ContactPage = () => {
       });
   };
 
-
-
   return (
     <section className="bg-[#F9FAFB]">
       {/* Hero Section */}
-      <div className="bg-[#1F2937] text-white py-20">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="bg-[#1F2937] text-white py-20"
+      >
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-          <div className="w-24 h-1 bg-[#C09F63] mx-auto mb-8"></div>
-          <p className="text-xl max-w-3xl mx-auto">
+          <motion.h1 
+            initial={{ y: -20 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold mb-6"
+          >
+            Contact Us
+          </motion.h1>
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8 }}
+            className="w-24 h-1 bg-[#C09F63] mx-auto mb-8"
+          ></motion.div>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-xl max-w-3xl mx-auto"
+          >
             Get in touch with our corporate gifting experts
-          </p>
+          </motion.p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Contact Content */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-2xl font-bold text-[#1F2937] mb-8">Our Office</h2>
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {/* Phone */}
-              <div className="flex items-start">
+              <motion.div 
+                whileHover={{ x: 5 }}
+                className="flex items-start bg-white p-5 rounded-xl shadow-sm border border-[#C09F63]/20"
+              >
                 <div className="bg-[#C09F63] p-3 rounded-full text-white mr-6">
                   <FaPhone className="text-lg" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-[#1F2937] mb-2">Phone</h3>
-                  <p className="text-[#1F2937]">+91 63619 31592 </p>
+                  <p className="text-[#1F2937]">+91 63619 31592</p>
                   <p className="text-[#1F2937]">+91 89203 10249</p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Email */}
-              <div className="flex items-start">
+              <motion.div 
+                whileHover={{ x: 5 }}
+                className="flex items-start bg-white p-5 rounded-xl shadow-sm border border-[#C09F63]/20"
+              >
                 <div className="bg-[#C09F63] p-3 rounded-full text-white mr-6">
                   <FaEnvelope className="text-lg" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-[#1F2937] mb-2">Email</h3>
-                  <p className="text-[#1F2937]">giftplus0024@gmail.com </p>
-                  {/* <p className="text-[#1F2937]">support@giftplus.com</p> */}
+                  <p className="text-[#1F2937]">giftplus0024@gmail.com</p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Address */}
-              <div className="flex items-start">
+              <motion.div 
+                whileHover={{ x: 5 }}
+                className="flex items-start bg-white p-5 rounded-xl shadow-sm border border-[#C09F63]/20"
+              >
                 <div className="bg-[#C09F63] p-3 rounded-full text-white mr-6">
                   <FaMapMarkerAlt className="text-lg" />
                 </div>
@@ -110,35 +143,54 @@ const ContactPage = () => {
                     Bengaluru, India - 560090
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Business Hours */}
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-[#C09F63]/20">
-                <h3 className="text-lg font-semibold text-[#1F2937] mb-3">Business Hours</h3>
-                <ul className="space-y-2 text-[#1F2937]">
-                  <li className="flex justify-between">
-                    <span>Monday - Friday:</span>
-                    <span>9:00 AM - 6:00 PM</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>Saturday:</span>
-                    <span>10:00 AM - 4:00 PM</span>
-                  </li>
-                  <li className="flex justify-between">
-                    <span>Sunday:</span>
-                    <span>Closed</span>
-                  </li>
-                </ul>
-              </div>
+              <motion.div 
+                whileHover={{ x: 5 }}
+                className="bg-white p-5 rounded-xl shadow-sm border border-[#C09F63]/20"
+              >
+                <div className="flex items-start">
+                  <div className="bg-[#C09F63] p-3 rounded-full text-white mr-6">
+                    <FaClock className="text-lg" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-[#1F2937] mb-3">Business Hours</h3>
+                    <ul className="space-y-2 text-[#1F2937]">
+                      <li className="flex justify-between">
+                        <span>Monday - Friday:</span>
+                        <span>9:00 AM - 6:00 PM</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>Saturday:</span>
+                        <span>10:00 AM - 4:00 PM</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>Sunday:</span>
+                        <span>Closed</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="bg-white p-8 rounded-xl shadow-md border border-[#C09F63]/30">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-white p-8 rounded-xl shadow-md border border-[#C09F63]/30"
+          >
             <h2 className="text-2xl font-bold text-[#1F2937] mb-6">Send Us a Message</h2>
 
             <form ref={form} onSubmit={sendEmail} className="space-y-6">
-              <div>
+              <motion.div 
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.2 }}
+              >
                 <label htmlFor="name" className="block text-sm font-medium text-[#1F2937] mb-1">
                   Full Name <span className="text-[#C09F63]">*</span>
                 </label>
@@ -150,9 +202,12 @@ const ContactPage = () => {
                   placeholder="Your name"
                   required
                 />
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div 
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.2 }}
+              >
                 <label htmlFor="email" className="block text-sm font-medium text-[#1F2937] mb-1">
                   Email <span className="text-[#C09F63]">*</span>
                 </label>
@@ -164,9 +219,12 @@ const ContactPage = () => {
                   placeholder="your.email@example.com"
                   required
                 />
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div 
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.2 }}
+              >
                 <label htmlFor="phone" className="block text-sm font-medium text-[#1F2937] mb-1">
                   Phone Number
                 </label>
@@ -177,9 +235,12 @@ const ContactPage = () => {
                   className="w-full px-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
                   placeholder="+91 98765 43210"
                 />
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div 
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.2 }}
+              >
                 <label htmlFor="message" className="block text-sm font-medium text-[#1F2937] mb-1">
                   Message <span className="text-[#C09F63]">*</span>
                 </label>
@@ -191,34 +252,19 @@ const ContactPage = () => {
                   placeholder="How can we help you?"
                   required
                 ></textarea>
-              </div>
+              </motion.div>
 
-              <button
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="bg-[#C09F63] hover:bg-[#E5B769] text-white font-medium px-6 py-3 rounded-lg flex items-center transition-colors duration-300"
+                className="w-full bg-[#C09F63] hover:bg-[#E5B769] text-white font-medium px-6 py-3 rounded-lg flex items-center justify-center transition-colors duration-300"
               >
                 <FaPaperPlane className="mr-2" />
-                {/* <Link to="/coming-soon"> */}
                 Send Message
-                {/* </Link> */}
-              </button>
+              </motion.button>
             </form>
-          </div>
-        </div>
-      </div>
-
-      {/* Map Embed */}
-      <div className="max-w-7xl mx-auto px-6 pb-16">
-        <div className="bg-white p-1 rounded-xl shadow-md border border-[#C09F63]/30 overflow-hidden">
-          <iframe
-            title="Office Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.223269104462!2d77.1023713150799!3d28.50244498247032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1925b5e5c3e1%3A0x3b9587e5a1a0e68b!2sSector%2015%2C%20Gurugram%2C%20Haryana%20122001!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
+          </motion.div>
         </div>
       </div>
     </section>

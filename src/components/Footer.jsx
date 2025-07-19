@@ -1,4 +1,13 @@
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -13,16 +22,16 @@ const Footer = () => {
               Premium corporate gifting solutions that strengthen business relationships through thoughtful, eco-friendly products.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-[#C09F63] hover:text-[#E5B769] transition-colors duration-300">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-[#C09F63] hover:text-[#E5B769] transition-colors duration-300">
                 <FaFacebookF size={18} />
               </a>
-              <a href="#" className="text-[#C09F63] hover:text-[#E5B769] transition-colors duration-300">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-[#C09F63] hover:text-[#E5B769] transition-colors duration-300">
                 <FaTwitter size={18} />
               </a>
-              <a href="#" className="text-[#C09F63] hover:text-[#E5B769] transition-colors duration-300">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-[#C09F63] hover:text-[#E5B769] transition-colors duration-300">
                 <FaLinkedinIn size={18} />
               </a>
-              <a href="#" className="text-[#C09F63] hover:text-[#E5B769] transition-colors duration-300">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-[#C09F63] hover:text-[#E5B769] transition-colors duration-300">
                 <FaInstagram size={18} />
               </a>
             </div>
@@ -32,23 +41,23 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-6 text-[#C09F63] border-b border-[#C09F63] pb-2">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="hover:text-[#C09F63] transition-colors duration-300">Home</a></li>
-              <li><a href="#" className="hover:text-[#C09F63] transition-colors duration-300">About Us</a></li>
-              <li><a href="#" className="hover:text-[#C09F63] transition-colors duration-300">Products</a></li>
-              <li><a href="#" className="hover:text-[#C09F63] transition-colors duration-300">Services</a></li>
-              <li><a href="#" className="hover:text-[#C09F63] transition-colors duration-300">Contact</a></li>
+              <li><Link to="/" className="hover:text-[#C09F63] transition-colors duration-300">Home</Link></li>
+              <li><Link to="/about" className="hover:text-[#C09F63] transition-colors duration-300">About Us</Link></li>
+              <li><Link to="/services" className="hover:text-[#C09F63] transition-colors duration-300">Services</Link></li>
+              <li><Link to="/gallery" className="hover:text-[#C09F63] transition-colors duration-300">Gallery</Link></li>
+              <li><Link to="/contact" className="hover:text-[#C09F63] transition-colors duration-300">Contact</Link></li>
             </ul>
           </div>
 
-          {/* Products */}
+          {/* Our Products (Premium Collection) */}
           <div>
             <h4 className="text-lg font-semibold mb-6 text-[#C09F63] border-b border-[#C09F63] pb-2">Our Products</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="hover:text-[#C09F63] transition-colors duration-300">Eco-Friendly Stationery</a></li>
-              <li><a href="#" className="hover:text-[#C09F63] transition-colors duration-300">Corporate Diaries</a></li>
-              <li><a href="#" className="hover:text-[#C09F63] transition-colors duration-300">Jute Products</a></li>
-              <li><a href="#" className="hover:text-[#C09F63] transition-colors duration-300">Executive Gift Sets</a></li>
-              <li><a href="#" className="hover:text-[#C09F63] transition-colors duration-300">Electronics</a></li>
+              <li><span className="hover:text-[#C09F63] transition-colors duration-300">Luxury Office Essentials <span className="text-xs text-[#E5B769]">(Coming Soon)</span></span></li>
+              <li><span className="hover:text-[#C09F63] transition-colors duration-300">Eco-Friendly Hampers <span className="text-xs text-[#E5B769]">(Coming Soon)</span></span></li>
+              <li><span className="hover:text-[#C09F63] transition-colors duration-300">Festival Gift Packs <span className="text-xs text-[#E5B769]">(Coming Soon)</span></span></li>
+              <li><span className="hover:text-[#C09F63] transition-colors duration-300">Executive Desk Sets <span className="text-xs text-[#E5B769]">(Coming Soon)</span></span></li>
+              <li><span className="hover:text-[#C09F63] transition-colors duration-300">Tech Accessories <span className="text-xs text-[#E5B769]">(Coming Soon)</span></span></li>
             </ul>
           </div>
 
@@ -81,9 +90,9 @@ const Footer = () => {
             © {new Date().getFullYear()} Gift Plus. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="text-sm text-[#9CA3AF] hover:text-[#C09F63] transition-colors duration-300">Privacy Policy</a>
-            <a href="#" className="text-sm text-[#9CA3AF] hover:text-[#C09F63] transition-colors duration-300">Terms of Service</a>
-            <a href="#" className="text-sm text-[#9CA3AF] hover:text-[#C09F63] transition-colors duration-300">Sitemap</a>
+            <Link to="/privacy-policy" className="text-sm text-[#9CA3AF] hover:text-[#C09F63] transition-colors duration-300">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="text-sm text-[#9CA3AF] hover:text-[#C09F63] transition-colors duration-300">Terms of Service</Link>
+            <Link to="/sitemap" className="text-sm text-[#9CA3AF] hover:text-[#C09F63] transition-colors duration-300">Sitemap</Link>
           </div>
         </div>
       </div>
