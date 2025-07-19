@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 const ServicesPage = () => {
   // Animation variants
@@ -126,6 +127,20 @@ const ServicesPage = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+        <title>Our Services | Gift Plus</title>
+        <meta
+          name="description"
+          content="Explore our corporate gifting services including eco-friendly products, custom packaging, and bulk order solutions."
+        />
+        <meta name="keywords" content="corporate gifting services, eco gifts, customized gifts, gifting solutions" />
+        <meta property="og:title" content="Our Services | Gift Plus" />
+        <meta property="og:description" content="Premium gifting solutions tailored for businesses – explore what we offer." />
+        <meta property="og:image" content="https://www.thegiftplus.in/preview.jpg" />
+        <meta property="og:url" content="https://www.thegiftplus.in/services" />
+        <meta property="og:type" content="website" />
+      </Helmet>
     <section className="bg-[#F9FAFB] overflow-hidden">
       {/* Hero Section */}
       <motion.div
@@ -289,6 +304,7 @@ const ServicesPage = () => {
         </motion.div>
       </motion.div>
     </section>
+    </>
   );
 };
 
