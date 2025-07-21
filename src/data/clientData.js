@@ -19,6 +19,11 @@ const clientData  = [
     "name": "Chevron",
     "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1752835843/chevron_h1qcoj.png",
   },
+  {
+    "id": 5,
+    "name": "Elbrit",
+    "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1753115828/images-removebg-preview_kriqgt.png",
+  },
 ]
 
 export default clientData;

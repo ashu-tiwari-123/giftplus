@@ -50,7 +50,7 @@ const HeroSection = () => {
                 Get in Touch
               </button>
             </Link>
-            <Link to="/coming-soon">
+            <Link to="/collection">
               <button className="border border-[#1F2937] hover:bg-[#1F2937] hover:text-[#F9FAFB] text-[#1F2937] font-medium px-8 py-3 rounded-full transition-colors duration-300">
                 Explore Gift Collections
               </button>

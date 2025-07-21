@@ -15,6 +15,7 @@ import Partners from "../admin/pages/Partners";
 import Gallery from "../admin/pages/Gallery";
 import Collections from "../admin/pages/Collections";
 import Clients from "../admin/pages/Clients";
+import ProductCollections from "../pages/Gallery";
 
 // Admin Pages
 
@@ -27,6 +28,7 @@ const AppRoutes = () => {
         <Route path="about" element={<AboutPage />} />
         <Route path="services" element={<ServicesPage />} />
         <Route path="contact" element={<ContactPage />} />
+        <Route path="collection" element={<ProductCollections />} />
         <Route path="coming-soon" element={<ComingSoon />} />
       </Route>
 
