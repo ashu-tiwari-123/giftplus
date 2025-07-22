@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FiSearch, FiFilter, FiX, FiZoomIn, FiChevronDown } from "react-icons/fi";
+import { FaUser, FaEnvelope, FaPhone, FaBuilding, FaGift, FaFileAlt } from 'react-icons/fa';
 import Loader from "../components/GiftLoader";
 import productsData from "../data/productsCollectionData";
 
@@ -17,6 +18,42 @@ const ProductCollections = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const filterRef = useRef(null);
 
+  // Quote form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    productInterest: '',
+    quantity: '',
+    message: ''
+  });
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleQuoteSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Quote Request:', {
+      ...formData,
+      product: selectedProduct?.name || ''
+    });
+    setShowPopup(false);
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      productInterest: selectedProduct?.name || '',
+      quantity: '',
+      message: ''
+    });
+  };
+
   // Close filter dropdown when clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -32,41 +69,40 @@ const ProductCollections = () => {
 
   // Get all unique tags from products for filters
   const allTags = ["All", ...new Set(productsData.flatMap(product => product.tags))];
-  
+
   // Filter and search functionality
   useEffect(() => {
     const filterProducts = async () => {
       setIsLoading(true);
-      
+
       // Small delay to show loader
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
       let filtered = [...productsData];
-      
+
       // Apply search filter
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
-        filtered = filtered.filter(product => 
+        filtered = filtered.filter(product =>
           product.name.toLowerCase().includes(query) ||
           product.description.toLowerCase().includes(query) ||
           product.tags.some(tag => tag.toLowerCase().includes(query))
         );
       }
-      
+
       // Apply tag filter
       if (activeFilter !== "All") {
-        filtered = filtered.filter(product => 
+        filtered = filtered.filter(product =>
           product.tags.includes(activeFilter)
         );
       }
-      
+
       // Save filtered products to check length
       setFilteredProducts(filtered);
-      
-      // Shuffle and limit to current loaded count
-      const shuffled = [...filtered].sort(() => 0.5 - Math.random());
-      setDisplayedProducts(shuffled.slice(0, loadedCount));
-      
+
+      // Limit to current loaded count
+      setDisplayedProducts(filtered.slice(0, loadedCount));
+
       setIsLoading(false);
     };
 
@@ -75,6 +111,10 @@ const ProductCollections = () => {
 
   const openQuotePopup = (product) => {
     setSelectedProduct(product);
+    setFormData(prev => ({
+      ...prev,
+      productInterest: product.name
+    }));
     setShowPopup(true);
   };
 
@@ -85,7 +125,6 @@ const ProductCollections = () => {
 
   const loadMoreProducts = async () => {
     setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 300));
     setLoadedCount(prev => prev + 20);
     setIsLoading(false);
   };
@@ -126,9 +165,9 @@ const ProductCollections = () => {
   };
 
   // Check if we should show load more button
-  const shouldShowLoadMore = !isLoading && 
-                            displayedProducts.length > 0 && 
-                            filteredProducts.length > displayedProducts.length;
+  const shouldShowLoadMore = !isLoading &&
+    displayedProducts.length > 0 &&
+    filteredProducts.length > displayedProducts.length;
 
   return (
     <div className="min-h-screen bg-white">
@@ -156,7 +195,7 @@ const ProductCollections = () => {
             />
             <FiSearch className="absolute left-3 top-3 text-gray-400" />
             {searchQuery && (
-              <button 
+              <button
                 onClick={clearSearch}
                 className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
               >
@@ -164,9 +203,9 @@ const ProductCollections = () => {
               </button>
             )}
           </div>
-          
+
           <div className="relative w-full md:w-96" ref={filterRef}>
-            <button 
+            <button
               onClick={() => setShowFilterDropdown(!showFilterDropdown)}
               className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-[#1F2937] rounded-lg hover:bg-gray-200 transition-colors w-full justify-between"
             >
@@ -176,9 +215,9 @@ const ProductCollections = () => {
               </div>
               <FiChevronDown className={`transition-transform ${showFilterDropdown ? 'rotate-180' : ''}`} />
             </button>
-            
+
             {showFilterDropdown && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="absolute z-10 mt-2 w-full bg-white rounded-lg shadow-lg border border-gray-200 max-h-60 overflow-y-auto"
@@ -212,7 +251,7 @@ const ProductCollections = () => {
                 <p className="text-gray-500 text-xl">No products found matching your criteria</p>
               </div>
             ) : (
-              <motion.div 
+              <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -248,7 +287,7 @@ const ProductCollections = () => {
                         alt={product.name}
                         className="absolute top-0 left-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <button 
+                      <button
                         onClick={() => openImageZoom(product.image)}
                         className="absolute bottom-3 right-3 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all"
                       >
@@ -258,13 +297,12 @@ const ProductCollections = () => {
                     <div className="p-6 flex flex-col flex-grow">
                       <div className="flex flex-wrap gap-2 mb-3">
                         {product.tags.map((tag) => (
-                          <span 
-                            key={tag} 
-                            className={`px-3 py-1 rounded-full text-[10px] font-medium ${
-                              tag === "Custom Branding" 
-                                ? "bg-gray-200 bg-opacity-10 text-[#1F2937]" 
-                                : "bg-gray-100 text-[#1F2937]"
-                            }`}
+                          <span
+                            key={tag}
+                            className={`px-3 py-1 rounded-full text-[10px] font-medium ${tag === "Custom Branding"
+                              ? "bg-gray-200 bg-opacity-10 text-[#1F2937]"
+                              : "bg-gray-100 text-[#1F2937]"
+                              }`}
                           >
                             {tag}
                           </span>
@@ -272,7 +310,7 @@ const ProductCollections = () => {
                       </div>
                       <h3 className="text-xl font-semibold text-[#1F2937] mb-2">{product.name}</h3>
                       <p className="text-gray-600 mb-6 flex-grow">{truncateDescription(product.description)}</p>
-                      <button 
+                      <button
                         onClick={() => openQuotePopup(product)}
                         className="mt-auto w-full py-3 bg-[#1F2937] text-white rounded-lg hover:bg-[#C09F63] transition-colors duration-300 font-medium"
                       >
@@ -289,7 +327,7 @@ const ProductCollections = () => {
         {/* Load More Button */}
         {shouldShowLoadMore && (
           <div className="mt-16 text-center">
-            <button 
+            <button
               onClick={loadMoreProducts}
               className="px-8 py-3 bg-[#1F2937] text-white rounded-full hover:bg-[#C09F63] transition-colors duration-300 font-medium flex items-center justify-center mx-auto"
               disabled={isLoading}
@@ -302,118 +340,175 @@ const ProductCollections = () => {
 
       {/* Quote Popup */}
       {showPopup && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-    <motion.div 
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      className="bg-white rounded-xl max-w-2xl w-full p-6 relative"
-    >
-      <button 
-        onClick={closePopup}
-        className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-      >
-        <FiX size={24} />
-      </button>
-      
-      <h3 className="text-2xl font-bold text-[#1F2937] mb-2">Get a Quote</h3>
-      <p className="text-gray-600 mb-6">Request pricing for: <span className="font-semibold">{selectedProduct?.name}</span></p>
-      
-      <form className="space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left Column */}
-          <div className="space-y-4">
-            <div>
-              <label className="block text-gray-700 mb-1">Your Name <span className="text-red-500">*</span></label>
-              <input 
-                type="text" 
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C09F63]"
-                placeholder="John Doe"
-                required
-              />
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            {/* Header */}
+            <div className="bg-[#1F2937] text-white p-4 rounded-t-xl flex justify-between items-center">
+              <div className="flex items-center space-x-2">
+                <h3 className="text-xl font-bold">Request a Quote: </h3>
+                {selectedProduct?.name && (
+                  <p className="text-sm text-gray-300 mt-1">
+                    {selectedProduct.name}
+                  </p>
+                )}
+              </div>
+              <button
+                onClick={closePopup}
+                className="text-white hover:text-[#C09F63] transition-colors"
+              >
+                <FiX />
+              </button>
             </div>
-            
-            <div>
-              <label className="block text-gray-700 mb-1">Email Address <span className="text-red-500">*</span></label>
-              <input 
-                type="email" 
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C09F63]"
-                placeholder="you@company.com"
-                required
-              />
-            </div>
-            
-            <div>
-              <label className="block text-gray-700 mb-1">Company Name</label>
-              <input 
-                type="text" 
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C09F63]"
-                placeholder="Your Company"
-              />
-            </div>
-          </div>
-          
-          {/* Right Column */}
-          <div className="space-y-4">
-            <div>
-              <label className="block text-gray-700 mb-1">Product ID</label>
-              <input 
-                type="text" 
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C09F63] bg-gray-100"
-                value="0"
-                readOnly
-              />
-              {/* <p className="text-xs text-gray-500 mt-1">Please specify the product ID if available</p> */}
-            </div>
-            
-            <div>
-              <label className="block text-gray-700 mb-1">Quantity Needed <span className="text-red-500">*</span></label>
-              <input
-                type="number"
-                min="1"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C09F63]"
-                placeholder="Enter quantity"
-                required
-              />
-            </div>
-            
-            <div>
-              <label className="block text-gray-700 mb-1">Additional Notes</label>
-              <textarea 
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C09F63]"
-                rows="3"
-                placeholder="Any specific requirements or customization needs..."
-              ></textarea>
-            </div>
+
+            {/* Form */}
+            <form onSubmit={handleQuoteSubmit} className="p-6 space-y-2">
+              {/* Name */}
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#C09F63]">
+                  <FaUser />
+                </div>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  className="w-full pl-10 pr-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
+                  placeholder="Full Name*"
+                  required
+                />
+              </div>
+
+              {/* Email */}
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#C09F63]">
+                  <FaEnvelope />
+                </div>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  className="w-full pl-10 pr-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
+                  placeholder="Email Address*"
+                  required
+                />
+              </div>
+
+              {/* Phone */}
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#C09F63]">
+                  <FaPhone />
+                </div>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleFormChange}
+                  className="w-full pl-10 pr-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
+                  placeholder="Phone Number*"
+                  required
+                />
+              </div>
+
+              {/* Company */}
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#C09F63]">
+                  <FaBuilding />
+                </div>
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleFormChange}
+                  className="w-full pl-10 pr-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
+                  placeholder="Company Name"
+                />
+              </div>
+
+              {/* Product ID */}
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#C09F63]">
+                  <FaFileAlt />
+                </div>
+                <input
+                  type="text"
+                  name="productId"
+                  value={formData.productId || ''}
+                  onChange={handleFormChange}
+                  className="w-full pl-10 pr-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
+                  placeholder="Product ID (if available)"
+                />
+              </div>
+              <p className="text-xs ml-1 text-gray-500">
+                Please enter the Product ID if available (leave blank if not sure)
+              </p>
+
+
+              {/* Quantity */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="number"
+                    name="quantity"
+                    value={formData.quantity}
+                    onChange={handleFormChange}
+                    className="w-full px-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
+                    placeholder="Approx. Quantity"
+                    min="1"
+                  />
+                </div>
+                <div>
+                  <select
+                    name="unit"
+                    className="w-full px-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
+                  >
+                    <option value="pieces">Pieces</option>
+                    <option value="sets">Sets</option>
+                    <option value="boxes">Boxes</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Message */}
+              <div className="relative">
+                <div className="absolute top-3 left-3 text-[#C09F63]">
+                  <FaFileAlt />
+                </div>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleFormChange}
+                  rows="3"
+                  className="w-full pl-10 pr-4 py-2 border border-[#D1D5DB] rounded-lg focus:ring-2 focus:ring-[#C09F63] focus:border-[#C09F63] outline-none transition"
+                  placeholder="Additional Requirements"
+                ></textarea>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full bg-[#C09F63] hover:bg-[#E5B769] text-white font-medium py-3 px-4 rounded-lg transition-colors duration-300"
+              >
+                Get Quote
+              </button>
+            </form>
           </div>
         </div>
-        
-        <div className="pt-4">
-          <button 
-            type="submit"
-            className="w-full py-3 bg-[#1F2937] text-white rounded-lg hover:bg-[#C09F63] transition-colors duration-300 font-medium"
-          >
-            Submit Request
-          </button>
-        </div>
-      </form>
-    </motion.div>
-  </div>
-)}
+      )}
 
       {/* Image Zoom Modal */}
       {zoomImage && (
         <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50">
-          <button 
+          <button
             onClick={closeImageZoom}
             className="absolute top-4 right-4 text-white hover:text-gray-300"
           >
             <FiX size={32} />
           </button>
           <div className="max-w-6xl w-full h-full flex items-center justify-center">
-            <img 
-              src={zoomImage} 
-              alt="Zoomed product" 
+            <img
+              src={zoomImage}
+              alt="Zoomed product"
               className="max-w-full max-h-full object-contain"
             />
           </div>

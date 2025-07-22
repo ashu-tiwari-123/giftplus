@@ -48,6 +48,9 @@ const Navbar = () => {
             <NavLink to="/" className={navLinkClass}>
               Home
             </NavLink>
+            <NavLink to="/collection" className={navLinkClass}>
+              Product
+            </NavLink>
             <NavLink to="/about" className={navLinkClass}>
               About
             </NavLink>
@@ -57,12 +60,12 @@ const Navbar = () => {
             <NavLink to="/contact" className={navLinkClass}>
               Contact
             </NavLink>
-            <button
+            {/* <button
               onClick={() => setShowQuotePopup(true)}
               className="bg-[#C09F63] hover:bg-[#E5B769] text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300"
             >
               Get a Quote
-            </button>
+            </button> */}
           </div>
 
           {/* Mobile menu button */}
@@ -98,6 +101,9 @@ const Navbar = () => {
           <NavLink to="/" onClick={closeMenu} className={mobileNavLinkClass}>
             Home
           </NavLink>
+          <NavLink to="/collection" onClick={closeMenu} className={mobileNavLinkClass}>
+            Product
+          </NavLink>
           <NavLink to="/about" onClick={closeMenu} className={mobileNavLinkClass}>
             About
           </NavLink>
@@ -107,7 +113,7 @@ const Navbar = () => {
           <NavLink to="/contact" onClick={closeMenu} className={mobileNavLinkClass}>
             Contact
           </NavLink>
-          <button
+          {/* <button
             onClick={() => {
               closeMenu();
               setShowQuotePopup(true);
@@ -115,7 +121,7 @@ const Navbar = () => {
             className="bg-[#C09F63] hover:bg-[#E5B769] text-white px-4 py-2 rounded-md text-base font-medium transition-colors duration-300 mt-4"
           >
             Get a Quote
-          </button>
+          </button> */}
         </div>
       </div>
 
