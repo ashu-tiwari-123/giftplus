@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { FaQuoteLeft, FaHandshake, FaTags, FaShieldAlt } from 'react-icons/fa';
+import { FaQuoteLeft, FaHandshake, FaTags, FaShieldAlt, FaLightbulb } from 'react-icons/fa';
 
 const AboutPage = () => {
   const containerVariants = {
@@ -26,19 +26,20 @@ const AboutPage = () => {
   };
 
   return (
-    <> <Helmet>
-      <title>About Us | Gift Plus</title>
-      <meta
-        name="description"
-        content="Learn more about Gift Plus, our mission, values, and commitment to premium corporate gifting."
-      />
-      <meta name="keywords" content="about gift plus, corporate gifting company, premium gifting" />
-      <meta property="og:title" content="About Us | Gift Plus" />
-      <meta property="og:description" content="Get to know Gift Plus – India's trusted corporate gifting partner." />
-      <meta property="og:image" content="https://www.thegiftplus.in/preview.jpg" />
-      <meta property="og:url" content="https://www.thegiftplus.in/about" />
-      <meta property="og:type" content="website" />
-    </Helmet>
+    <>
+      <Helmet>
+        <title>About Us | Gift Plus</title>
+        <meta
+          name="description"
+          content="Learn more about Gift Plus, our mission, values, and commitment to premium corporate gifting."
+        />
+        <meta name="keywords" content="about gift plus, corporate gifting company, premium gifting" />
+        <meta property="og:title" content="About Us | Gift Plus" />
+        <meta property="og:description" content="Get to know Gift Plus – India's trusted corporate gifting partner." />
+        <meta property="og:image" content="https://www.thegiftplus.in/preview.jpg" />
+        <meta property="og:url" content="https://www.thegiftplus.in/about" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <section className="bg-[#F9FAFB]">
         {/* Hero Section */}
         <motion.div
@@ -83,7 +84,7 @@ const AboutPage = () => {
               duration: 0.6
             }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20"
+            className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20"
           >
             {/* Founder */}
             <motion.div
@@ -93,11 +94,27 @@ const AboutPage = () => {
               <div className="text-[#C09F63] text-4xl mb-4 flex justify-center">
                 <FaHandshake />
               </div>
-              <h3 className="text-2xl font-bold text-[#1F2937] mb-2">Mr. Shashi Prakash</h3>
+              <h3 className="text-2xl font-bold text-[#1F2937] mb-2">Mrs. Sandhya Tiwari</h3>
               <p className="text-[#C09F63] font-medium">Founder</p>
               <div className="w-16 h-0.5 bg-[#C09F63] mx-auto my-4"></div>
               <p className="text-[#1F2937] mt-4">
-                Visionary leader with 10+ years in corporate gifting industry
+                Visionary leader with a passion for excellence in corporate gifting
+              </p>
+            </motion.div>
+
+            {/* Co-Founder */}
+            <motion.div
+              variants={itemVariants}
+              className="text-center bg-white p-8 rounded-xl shadow-sm border border-[#C09F63]/20"
+            >
+              <div className="text-[#C09F63] text-4xl mb-4 flex justify-center">
+                <FaLightbulb />
+              </div>
+              <h3 className="text-2xl font-bold text-[#1F2937] mb-2">Mr. Shashi Prakash</h3>
+              <p className="text-[#C09F63] font-medium">Marketing Manager</p>
+              <div className="w-16 h-0.5 bg-[#C09F63] mx-auto my-4"></div>
+              <p className="text-[#1F2937] mt-4">
+                Innovative strategist and 10+ years in corporate gifting industry
               </p>
             </motion.div>
 
@@ -225,7 +242,8 @@ const AboutPage = () => {
             </motion.div>
           </motion.div>
         </div>
-      </section></>
+      </section>
+    </>
   );
 };
 

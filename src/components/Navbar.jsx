@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import QuotePopup from './Quote';
 import ContactPopup from './ContactPopup';
 
@@ -23,13 +23,11 @@ const Navbar = () => {
   }, [isOpen]);
 
   const navLinkClass = ({ isActive }) =>
-    `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
-      isActive ? 'text-[#C09F63]' : 'text-[#1F2937] hover:text-[#C09F63]'
+    `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${isActive ? 'text-[#C09F63]' : 'text-[#1F2937] hover:text-[#C09F63]'
     }`;
 
   const mobileNavLinkClass = ({ isActive }) =>
-    `px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${
-      isActive ? 'text-[#C09F63]' : 'text-[#1F2937] hover:text-[#C09F63]'
+    `px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${isActive ? 'text-[#C09F63]' : 'text-[#1F2937] hover:text-[#C09F63]'
     }`;
 
   return (
@@ -57,15 +55,17 @@ const Navbar = () => {
             <NavLink to="/services" className={navLinkClass}>
               Services
             </NavLink>
-            <NavLink to="/contact" className={navLinkClass}>
+            {/* <NavLink to="/contact" className={navLinkClass}>
               Contact
-            </NavLink>
-            {/* <button
-              onClick={() => setShowQuotePopup(true)}
+            </NavLink> */}
+            <button
+              // onClick={() => setShowQuotePopup(true)}
               className="bg-[#C09F63] hover:bg-[#E5B769] text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300"
             >
-              Get a Quote
-            </button> */}
+              <Link to="/contact" className={navLinkClass}>
+                Contact
+              </Link>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -84,9 +84,8 @@ const Navbar = () => {
       {/* Mobile Sidebar */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 h-full w-64 bg-[#F9FAFB] shadow-lg transform ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        } transition-transform duration-300 ease-in-out z-50 md:hidden`}
+        className={`fixed top-0 right-0 h-full w-64 bg-[#F9FAFB] shadow-lg transform ${isOpen ? 'translate-x-0' : 'translate-x-full'
+          } transition-transform duration-300 ease-in-out z-50 md:hidden`}
       >
         <div className="flex justify-end p-4">
           <button
@@ -110,18 +109,17 @@ const Navbar = () => {
           <NavLink to="/services" onClick={closeMenu} className={mobileNavLinkClass}>
             Services
           </NavLink>
-          <NavLink to="/contact" onClick={closeMenu} className={mobileNavLinkClass}>
+          {/* <NavLink to="/contact" onClick={closeMenu} className={mobileNavLinkClass}>
             Contact
-          </NavLink>
-          {/* <button
-            onClick={() => {
-              closeMenu();
-              setShowQuotePopup(true);
-            }}
-            className="bg-[#C09F63] hover:bg-[#E5B769] text-white px-4 py-2 rounded-md text-base font-medium transition-colors duration-300 mt-4"
-          >
-            Get a Quote
-          </button> */}
+          </NavLink> */}
+           <button
+              // onClick={() => setShowQuotePopup(true)}
+              className="bg-[#C09F63] hover:bg-[#E5B769] text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+            >
+              <Link to="/contact" className={navLinkClass}>
+                Contact
+              </Link>
+            </button>
         </div>
       </div>
 
