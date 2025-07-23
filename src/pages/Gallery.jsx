@@ -10,6 +10,7 @@ const ProductCollections = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [pendingSearchQuery, setPendingSearchQuery] = useState("");
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [loadedCount, setLoadedCount] = useState(20);
   const [zoomImage, setZoomImage] = useState(null);
@@ -130,7 +131,27 @@ const ProductCollections = () => {
   };
 
   const clearSearch = () => {
+    setPendingSearchQuery("");
     setSearchQuery("");
+  };
+
+  const handleSearchInputChange = (e) => {
+    setPendingSearchQuery(e.target.value);
+  };
+
+  const handleSearch = () => {
+    setSearchQuery(pendingSearchQuery);
+    setLoadedCount(20); // Reset loaded count when search changes
+    if (pendingSearchQuery) {
+      setActiveFilter("All");
+    }
+  };
+
+  const handleSearchInputKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleSearch();
+    }
   };
 
   // Truncate description to 100 characters
@@ -190,11 +211,18 @@ const ProductCollections = () => {
               type="text"
               placeholder="Search products..."
               className="w-full pl-10 pr-10 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C09F63] focus:border-transparent"
-              value={searchQuery}
-              onChange={handleSearchChange}
+              value={pendingSearchQuery}
+              onChange={handleSearchInputChange}
+              onKeyDown={handleSearchInputKeyDown}
             />
-            <FiSearch className="absolute left-3 top-3 text-gray-400" />
-            {searchQuery && (
+            <button
+              onClick={handleSearch}
+              className="absolute left-3 top-3 text-gray-400 hover:text-gray-600"
+              aria-label="Search"
+            >
+              <FiSearch size={18} />
+            </button>
+            {pendingSearchQuery && (
               <button
                 onClick={clearSearch}
                 className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
