@@ -24,6 +24,11 @@ const clientData  = [
     "name": "Elbrit",
     "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1753115828/images-removebg-preview_kriqgt.png",
   },
+  {
+    "id": 6,
+    "name": "ComputerShare",
+    "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757318820/Computershare_logos-removebg-preview_gs7pts.png",
+  },
 ]
 
 export default clientData;

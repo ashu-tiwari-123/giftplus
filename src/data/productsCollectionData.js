@@ -160,6 +160,83 @@ const productsData = [
     tags: ["Custom Branding", "Office Bag"],
     image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1753121796/IMG-20250721-WA0024_pwdhjh.jpg",
   },
+  {
+    id: 24,
+    name: "FASTRACK LIMITLESS FR1 PRO",
+    description: "Fastrack Limitless FR1 Pro is a stylish and durable watch that is perfect for everyday wear.",
+    tags: ["Watches","Men's Watch"],
+    image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757319047/Products/Watches/Screenshot_2025-09-08_133846_vy5va1.png",
+  },
+  {
+    id: 25,
+    name: "FASTRACK JUPITER RUGGED",
+    description: "Fastrack Jupiter Rugged is a stylish and durable watch that is perfect for everyday wear.",
+    tags: ["Watches","Men's Watch"],
+    image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757319047/Products/Watches/Screenshot_2025-09-08_133856_mq1rbg.png",
+  },
+  {
+    id: 26,
+    name: "FASTRACK ASTER FR1 PRO ",
+    description: "Fastrack Aster FR1 Pro is a stylish and durable watch that is perfect for everyday wear.",
+    tags: ["Watches","Men's Watch"],
+    image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757319047/Products/Watches/Screenshot_2025-09-08_133904_b1sk62.png",
+  },
+  {
+    id: 27,
+    name: "LIMITLESS FS1 PRO",
+    description: "Limitless FS1 Pro is a stylish and durable watch that is perfect for everyday wear.",
+    tags: ["Watches","Men's Watch"],
+    image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757319047/Products/Watches/Screenshot_2025-09-08_133912_hpvbe2.png",
+  },
+  {
+    id: 28,
+    name: "FASTRACK MAGNUS FXI",
+    description: "Fastrack Magnus FXI is one of the best watches for men in India.",
+    tags: ["Watches","Men's Watch"],
+    image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757319047/Products/Watches/Screenshot_2025-09-08_133923_rtbgdu.png",
+  },
+  {
+    id: 29,
+    name: "FASTRACK RADIANT FX1",
+    description: "Fastrack Radiant FX1 is one of the best watches for men in India.",
+    tags: ["Watches","Men's Watch"],
+    image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757319045/Products/Watches/Screenshot_2025-09-08_133935_vbztda.png",
+  },
+  {
+    id: 30,
+    name: "TITAN ZEAL",
+    description: "Titan Zeal is the best watch for men in India.",
+    tags: ["Watches","Men's Watch"],
+    image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757319044/Products/Watches/Screenshot_2025-09-08_133945_fk0qqq.png",
+  },
+  {
+    id: 31,
+    name:"Watch Collection",
+    description: "Watch Collection is a collection of watches that are perfect for everyday wear.",
+    tags: ["Watches","Men's Watch"],
+    image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757319572/Products/Watches/Screenshot_2025-09-08_134810_ofaw8y.png",
+  },
+  {
+    id: 32,
+    name: "Watch Collection",
+    description: "Watch Collection is a collection of watches that are perfect for everyday wear.",
+    tags: ["Watches","Men's Watch"],
+    image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757319541/Products/Watches/Screenshot_2025-09-08_134818_zktpfb.png",
+  },
+  {
+    id: 33,
+    name: "Watch Collection",
+    description: "Watch Collection is a collection of watches that are perfect for everyday wear.",
+    tags: ["Watches","Men's Watch"],
+    image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757319536/Products/Watches/Screenshot_2025-09-08_134836_frfkjj.png",
+  },
+  {
+    id: 34,
+    name: "Watch Collection",
+    description: "Watch Collection is a collection of watches that are perfect for everyday wear.",
+    tags: ["Watches","Men's Watch"],
+    image: "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757319536/Products/Watches/Screenshot_2025-09-08_134827_mcvysw.png",
+  }
 ];
 
 export default productsData;

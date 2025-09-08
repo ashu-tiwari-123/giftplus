@@ -6,12 +6,14 @@ import one from "../assets/product_image/one.jpg";
 import pen from "../assets/product_image/pen.jpg";
 import cooker from "../assets/product_image/cooker.jpg";
 import CollectionData from "../data/collectionData";
+import { useNavigate } from "react-router-dom";
 
 const ProductsCarousel = () => {
   //  const { collections, addCollection, loading } = useAdmin();
   //  console.log(collections);
-   
+
   const products = CollectionData
+  const navigate = useNavigate();
   // Carousel settings
   const settings = {
     dots: true,
@@ -65,9 +67,15 @@ const ProductsCarousel = () => {
 
                   {/* Product Name */}
                   <div className="p-4 text-center">
-                    <h3 className="text-lg font-medium text-[#1F2937]">
+                    <button
+                      className="text-lg font-medium text-[#1F2937] hover:text-[#C09F63] underline"
+                      onClick={() => {
+                        const filename = product.pdfPath.split("/").pop();
+                        navigate(`/pdf/${encodeURIComponent(filename)}`);
+                      }}
+                    >
                       {product.name}
-                    </h3>
+                    </button>
                   </div>
                 </div>
               </div>

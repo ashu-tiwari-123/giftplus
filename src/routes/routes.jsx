@@ -8,6 +8,7 @@ import ServicesPage from "../pages/Services";
 import ContactPage from "../pages/Contact";
 import Error404 from "../components/Error";
 import ComingSoon from "../components/ComingSoon";
+import PdfViewer from "../pages/PdfViewer";
 import AdminLogin from "../admin/pages/AdminLogin";
 import AdminRoute from "../admin/components/AdminRoute";
 import Dashboard from "../admin/components/Dashboard";
@@ -29,6 +30,7 @@ const AppRoutes = () => {
         <Route path="services" element={<ServicesPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="collection" element={<ProductCollections />} />
+        <Route path="pdf/:file" element={<PdfViewer />} />
         <Route path="coming-soon" element={<ComingSoon />} />
       </Route>
 
