@@ -4,6 +4,7 @@ import { FiSearch, FiFilter, FiX, FiZoomIn, FiChevronDown } from "react-icons/fi
 import { FaUser, FaEnvelope, FaPhone, FaBuilding, FaGift, FaFileAlt } from 'react-icons/fa';
 import Loader from "../components/GiftLoader";
 import productsData from "../data/productsCollectionData";
+import { toast } from "react-toastify";
 
 const ProductCollections = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -339,7 +340,8 @@ const ProductCollections = () => {
                       <h3 className="text-xl font-semibold text-[#1F2937] mb-2">{product.name}</h3>
                       <p className="text-gray-600 mb-6 flex-grow">{truncateDescription(product.description)}</p>
                       <button
-                        onClick={() => openQuotePopup(product)}
+                        // onClick={() => openQuotePopup(product)}
+                        onClick={()=>toast.info(`Currently Unavailable! Please connect through "Contact Us" Page.`)}
                         className="mt-auto w-full py-3 bg-[#1F2937] text-white rounded-lg hover:bg-[#C09F63] transition-colors duration-300 font-medium"
                       >
                         Get a Quote

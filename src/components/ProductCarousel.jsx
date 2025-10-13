@@ -57,7 +57,7 @@ const ProductsCarousel = () => {
               <div key={index} className="px-3 focus:outline-none">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-[#C09F63] hover:shadow-lg transition-all duration-300">
                   {/* Product Image */}
-                  <div className="h-64 overflow-hidden">
+                  <div className="h-64 overflow-hidden border-b">
                     <img
                       src={product.image}
                       alt={product.name}
@@ -68,7 +68,7 @@ const ProductsCarousel = () => {
                   {/* Product Name */}
                   <div className="p-4 text-center">
                     <button
-                      className="text-lg font-medium text-[#1F2937] hover:text-[#C09F63] underline"
+                      className="text-lg font-medium text-[#1F2937] hover:text-[#C09F63] "
                       onClick={() => {
                         const filename = product.pdfPath.split("/").pop();
                         navigate(`/pdf/${encodeURIComponent(filename)}`);

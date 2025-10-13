@@ -29,6 +29,11 @@ const clientData  = [
     "name": "ComputerShare",
     "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1757318820/Computershare_logos-removebg-preview_gs7pts.png",
   },
+  {
+    "id": 7,
+    "name": "Quantum Elevators",
+    "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1760337911/quantum_logo_k3l6gc.png",
+  },
 ]
 
 export default clientData;
