@@ -126,7 +126,7 @@ const AboutPage = () => {
               <div className="text-[#C09F63] text-4xl mb-4 flex justify-center">
                 <FaShieldAlt />
               </div>
-              <h3 className="text-2xl font-bold text-[#1F2937] mb-2">Ashutosh Tiwari</h3>
+              <h3 className="text-2xl font-bold text-[#1F2937] mb-2">Mr. Ashutosh Tiwari</h3>
               <p className="text-[#C09F63] font-medium">General Manager</p>
               <div className="w-16 h-0.5 bg-[#C09F63] mx-auto my-4"></div>
               <p className="text-[#1F2937] mt-4">

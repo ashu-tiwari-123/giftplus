@@ -3,6 +3,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import QuotePopup from './Quote';
 import ContactPopup from './ContactPopup';
+import logo from '../assets/giftplus/giftplus_logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,10 +37,15 @@ const Navbar = () => {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <NavLink to="/" className="text-[#1F2937] text-xl font-bold">
-              Gift Plus
+            <NavLink to="/" className="flex items-center">
+              <img
+                src={logo}
+                alt="Gift Plus Logo"
+                className="h-22 w-auto object-contain"
+              />
             </NavLink>
           </div>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
@@ -112,14 +118,14 @@ const Navbar = () => {
           {/* <NavLink to="/contact" onClick={closeMenu} className={mobileNavLinkClass}>
             Contact
           </NavLink> */}
-           <button
-              // onClick={() => setShowQuotePopup(true)}
-              className="bg-[#C09F63] hover:bg-[#E5B769] text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300"
-            >
-              <Link to="/contact" className={navLinkClass}>
-                Contact
-              </Link>
-            </button>
+          <button
+            // onClick={() => setShowQuotePopup(true)}
+            className="bg-[#C09F63] hover:bg-[#E5B769] text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+          >
+            <Link to="/contact" className={navLinkClass}>
+              Contact
+            </Link>
+          </button>
         </div>
       </div>
 
