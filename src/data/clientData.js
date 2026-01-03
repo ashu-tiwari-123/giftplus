@@ -34,6 +34,11 @@ const clientData  = [
     "name": "Quantum Elevators",
     "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1760337911/quantum_logo_k3l6gc.png",
   },
+  {
+    "id": 8,
+    "name": "GSS Pharma",
+    "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/c_crop,w_500,h_138/v1767430677/weblogo-removebg-preview_bspukp.png",
+  },
 ]
 
 export default clientData;
