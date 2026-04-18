@@ -1,0 +1,50 @@
+.slick-dots li button:before {
+  color: #C09F63 !important;
+  opacity: 0.3;
+  font-size: 10px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #C09F63 !important;
+  opacity: 1;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #C09F63 !important;
+  opacity: 0.7;
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  opacity: 1;
+}
+
+.magical-char {
+  opacity: 0;
+}
+
+.group:hover .magical-char {
+  animation: magicalReveal 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  /* text-shadow: 0 0 8px #C09F63, 0 0 15px #D4AF37; */
+}
+
+@keyframes magicalReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.9);
+    filter: blur(2px);
+  }
+
+  60% {
+    opacity: 0.8;
+    transform: translateY(-2px) scale(1.02);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}

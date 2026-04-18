@@ -39,6 +39,17 @@ const clientData  = [
     "name": "GSS Pharma",
     "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/c_crop,w_500,h_138/v1767430677/weblogo-removebg-preview_bspukp.png",
   },
+  {
+    "id": 9,
+    "name": "Gland Pharma",
+    "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1776508533/header_logo_q311id.webp",
+  },
+  {
+    "id": 10,
+    "name": "Vet Treats",
+    "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1776508781/Screenshot_2026-04-18_at_4.08.59_PM-removebg-preview_qh4i8t.png",
+  },
+ 
 ]
 
 export default clientData;
