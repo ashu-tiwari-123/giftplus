@@ -138,6 +138,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-[#1F2937] mb-2">Email</h3>
+                    <p className="text-[#1F2937]">sales@thegiftplus.in</p>
                     <p className="text-[#1F2937]">giftplus0024@gmail.com</p>
                   </div>
                 </motion.div>

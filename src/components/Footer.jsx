@@ -71,7 +71,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <FaEnvelope className="text-[#C09F63] mt-1 mr-3" />
-                <span>giftplus0024@gmail.com</span>
+                <span>sales@thegiftplus.in</span>
               </li>
               <li className="flex items-start">
                 <FaMapMarkerAlt className="text-[#C09F63] mt-1 mr-3" />
