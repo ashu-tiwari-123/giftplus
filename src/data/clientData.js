@@ -49,6 +49,16 @@ const clientData  = [
     "name": "Vet Treats",
     "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1776508781/Screenshot_2026-04-18_at_4.08.59_PM-removebg-preview_qh4i8t.png",
   },
+  {
+    "id": 11,
+    "name": "Shiva Analyticals",
+    "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1793338314/Screenshot_2026-10-30_at_11.01.48_AM_oqqzkv.png",
+  },
+  {
+    "id": 12,
+    "name": "Global Travels",
+    "logo": "https://res.cloudinary.com/djt9kbgzg/image/upload/v1793338217/Screenshot_2026-10-30_at_11.00.10_AM_jjsbja.png",
+  },
  
 ]
 
